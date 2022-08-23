@@ -40,9 +40,7 @@ describe.only('API - Profile', () => {
             }).then(({ body, status }) => {
                 expect(status).to.eq(200)
                 expect(body.githubusername).to.eq('pehguerra')
-            })
-            
-        })
-      
+            })            
+        })      
     })
 })
