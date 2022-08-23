@@ -1,7 +1,7 @@
 describe('Teste do cypress.config.js', () => {
 
     it('teste de mensagem no console - browser', () => {
-        // console.log('teste de mensagem no browser')
+        console.log('teste de mensagem no browser')
     })
 
     it.only('teste de task', () => {
@@ -14,5 +14,13 @@ describe('Teste do cypress.config.js', () => {
             .then(variavel => {
                 cy.log(`Quantidade de arquivos: ${variavel}`)
             })
+    })
+
+    it('conta o total de arquivos da pasta NODEJS', () => {
+        cy.task('lerPasta', 'cypress/e2e/nodejs')
+            .then(totalArquivos => {
+                cy.log(`Quantidade de arquivos: ${totalArquivos}`)
+            })
+            
     })
 })

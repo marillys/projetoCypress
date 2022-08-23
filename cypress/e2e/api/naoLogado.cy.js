@@ -7,7 +7,7 @@ describe.only('API - Profile', () => {
             }).then(({ status, body, duration, headers}) => {
                 expect(status).to.eq(200)
                 expect(body[0].company).to.eq('GFT')
-                expect(duration).to.be.lessThan(2000)
+                expect(duration).to.be.lessThan(5000)
                 expect(headers['x-powered-by']).to.eq('Express')
                 expect(body[0].education[0].degree).to.eq('MBA')
                 expect(body[0].bio).to.not.be.null

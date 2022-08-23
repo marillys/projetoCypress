@@ -7,6 +7,12 @@ describe('API - POSTS', () => {
         cy.login(Cypress.env('email'), Cypress.env('password'))
     })
 
+    after(() => {
+        Cypress.Cookies.defaults({
+            preserve: 'jwt'
+        })
+    })
+
     it('valida todos os posts', () => {
         cy.request({
             method: 'GET',
@@ -20,7 +26,7 @@ describe('API - POSTS', () => {
         cy.request({
             method: 'GET',
             url: '/api/posts',
-           
+
         }).then(({ status }) => {
             expect(status).to.eq(200)
         })
