@@ -7,7 +7,9 @@ module.exports = defineConfig({
         viewportHeight: 1080,
         viewportWidth: 1920,
 
+
         setupNodeEvents(on, config) {
+            
             // listener
             on('task', {
 
@@ -19,6 +21,10 @@ module.exports = defineConfig({
 
                 lerPasta(caminho) {
                     return fs.readdirSync(caminho).length
+                },
+
+                lerEmail() {
+                    return process.env.path
                 }
             })
         },

@@ -4,7 +4,7 @@ describe('Teste do cypress.config.js', () => {
         console.log('teste de mensagem no browser')
     })
 
-    it.only('teste de task', () => {
+    it('teste de task', () => {
         cy.task('msgConsole')
     })
 
@@ -22,5 +22,15 @@ describe('Teste do cypress.config.js', () => {
                 cy.log(`Quantidade de arquivos: ${totalArquivos}`)
             })
             
+    })
+
+    it('Lê variavel de ambiente do terminal', () => {
+        cy.log(Cypress.env('pedro'))
+    })
+
+    it.only('Ler variável de ambiente do sistema operacional', () => {
+        cy.task('lerEmail').then(variavel => {
+            cy.log(`conteúdo da variável ${variavel}`)
+        })
     })
 })

@@ -36,4 +36,10 @@ describe('API - POSTS', () => {
         // Cookie: `jwt=${jwt}`
         // }
     })
+
+    after(() => {
+        Cypress.Cookies.defaults({
+            preserve: []
+        })
+    })
 })
