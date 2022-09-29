@@ -1,9 +1,12 @@
-describe('Cabeçalho home Page', () => {
-    before(() => {
-        cy.visit('/')
-    })
+import LoginPage from '../../pageObjects/LoginPage'
 
+describe('Cabeçalho home Page', () => {
+    
     context('Valida o cabeçalho da area nao logada', () => {
+        before(() => {
+            cy.visit('/')
+        })
+
         it('', () => {
 
             cy.getElement('navbar-conexaoQA')
@@ -51,6 +54,33 @@ describe('Cabeçalho home Page', () => {
             { seletor: 'navbar-login', link: '/login', nome: 'Login' }
         ].forEach(({seletor, link, nome }) => {
             it(`Valida o menu ${nome}`, () => {
+                cy.getElement(seletor)
+                    .should('have.attr','href', link)
+                    .and('not.have.attr','target','_blank')
+                    .and('have.text',nome)
+            })
+        })
+    })
+    
+    context('não logado', () => {
+        before(() => {
+            const login = new LoginPage()
+
+            login.visitar()
+            login.preencherEmail(Cypress.env('email'))
+            login.preencherSenha(Cypress.env('password'))
+            login.submeter()
+        })
+
+        ;[
+            { seletor: 'navbar-conexaoQA', link: '/', nome: ' ConexãoQA' },
+            { seletor: 'navbar-QAs', link: '/perfis',nome: 'QAs' },
+            { seletor: 'navbar-posts', link: '/posts', nome: 'Posts' },
+            { seletor: 'navbar-dashboard', link: '/dashboard', nome: ' Dashboard' },
+            { seletor: 'navbar-about', link: '/sobre', nome: 'Sobre'},
+            { seletor: 'navbar-logout', link: '/', nome: ' Sair'}
+        ].forEach(({seletor, link, nome }) => {
+            it.only(`Valida o menu ${nome} da área logada`, () => {
                 cy.getElement(seletor)
                     .should('have.attr','href', link)
                     .and('not.have.attr','target','_blank')
