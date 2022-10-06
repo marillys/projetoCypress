@@ -2,6 +2,13 @@ import LoginPage from '../../pageObjects/LoginPage'
 
 describe('Cabeçalho home Page', () => {
     
+    const validarMenu = (seletor, link, nome) => {
+        cy.getElement(seletor)
+            .should('have.attr','href', link)
+            .and('not.have.attr','target','_blank')
+            .and('have.text',nome)
+    }
+
     context('Valida o cabeçalho da area nao logada', () => {
         before(() => {
             cy.visit('/')
@@ -54,15 +61,13 @@ describe('Cabeçalho home Page', () => {
             { seletor: 'navbar-login', link: '/login', nome: 'Login' }
         ].forEach(({seletor, link, nome }) => {
             it(`Valida o menu ${nome}`, () => {
-                cy.getElement(seletor)
-                    .should('have.attr','href', link)
-                    .and('not.have.attr','target','_blank')
-                    .and('have.text',nome)
+               
+                validarMenu(seletor,link,nome)
             })
         })
     })
     
-    context('não logado', () => {
+    context('logado', () => {
         before(() => {
             const login = new LoginPage()
 
@@ -80,11 +85,8 @@ describe('Cabeçalho home Page', () => {
             { seletor: 'navbar-about', link: '/sobre', nome: 'Sobre'},
             { seletor: 'navbar-logout', link: '/', nome: ' Sair'}
         ].forEach(({seletor, link, nome }) => {
-            it.only(`Valida o menu ${nome} da área logada`, () => {
-                cy.getElement(seletor)
-                    .should('have.attr','href', link)
-                    .and('not.have.attr','target','_blank')
-                    .and('have.text',nome)
+            it(`Valida o menu ${nome} da área logada - Teste dinamico`, () => {
+                validarMenu(seletor, link,nome)
             })
         })
     })
