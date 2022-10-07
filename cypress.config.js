@@ -6,7 +6,7 @@ module.exports = defineConfig({
         baseUrl: 'https://conexaoqa.herokuapp.com',
         viewportHeight: 1080,
         viewportWidth: 1920,
-
+        defaultCommandTimeout: 5000,
 
         setupNodeEvents(on, config) {
             
