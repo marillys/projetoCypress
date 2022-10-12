@@ -1,4 +1,4 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 const fs = require('fs')
 
 module.exports = defineConfig({
@@ -6,8 +6,13 @@ module.exports = defineConfig({
         baseUrl: 'https://conexaoqa.herokuapp.com',
         viewportHeight: 1080,
         viewportWidth: 1920,
-        defaultCommandTimeout: 5000,
-
+        defaultCommandTimeout: 8000,
+        requestTimeout: 2000,
+        retries: {
+            runMode: 2,
+            openMode: 0
+        },
+        // eslint-disable-next-line
         setupNodeEvents(on, config) {
             
             // listener
