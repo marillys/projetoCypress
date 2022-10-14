@@ -187,5 +187,32 @@
         "education": [],
         "date": "2021-05-06T18:20:43.450Z",
         "__v": 7
+    },
+    {
+        "social": {
+            "youtube": "",
+            "twitter": "",
+            "facebook": "",
+            "linkedin": "",
+            "instagram": "",
+            "medium": ""
+        },
+        "skills": [
+            "Cypress",
+            "Automação",
+            "Testes",
+            "JavaScript"
+        ],
+        "_id": "6094337b1171bc30b8a83c512",
+        "user": {
+            "_id": "6094337a1171bc30b8a83c50",
+            "name": "Test 8",
+            "avatar": "//www.gravatar.com/avatar/a851b79ece58b4d14ab732599f83e870?s=200&r=pg&d=mm"
+        },
+        "status": "Especialista em QA",
+        "experience": [],
+        "education": [],
+        "date": "2021-05-06T18:20:43.450Z",
+        "__v": 2
     }
 ]
