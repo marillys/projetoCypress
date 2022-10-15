@@ -13,6 +13,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// eslint-disable-next-line
+/// <reference path='index.d.ts' />
+
 // Import commands.js using ES2015 syntax:
 import './commands'
 
