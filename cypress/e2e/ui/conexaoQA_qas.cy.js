@@ -10,7 +10,7 @@ describe('Valida a página de QAs', () => {
             cy.visit('/perfis')
         })
     
-        it('Valida se a página carregou com espera de elemento', () => {
+        it('Valida se a página carregou com espera de elemento', {tags: '@flaky'}, () => {
             // Não tem espera alterada, espera o tempo definido no arquivo cypress.config
             cy.contains('h1','Perfis')
                 .should('be.visible')

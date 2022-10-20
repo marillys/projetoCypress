@@ -2,7 +2,7 @@ import LoginPage from '../../pageObjects/LoginPage'
 describe('Alertas', () => {
     const login = new LoginPage()
 
-    it('Valida o alerta de senha inválida', () => {
+    it('Valida o alerta de senha inválida', {tags: 'smoke'}, () => {
         cy.clock()
 
         login.visitar()

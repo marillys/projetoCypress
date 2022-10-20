@@ -1,4 +1,4 @@
-describe('Paginação QAs', () => {
+describe('Paginação QAs', {tags: '@regressao'}, () => {
 
     const paginacao = () => cy.get('.paginationBttns li')
     const URL_API = '/api/profile'

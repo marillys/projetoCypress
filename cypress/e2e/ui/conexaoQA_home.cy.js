@@ -3,7 +3,7 @@ describe('home page',() => {
         cy.visit('/')
     })
 
-    it('Valida o título e subtítulo da aplicação', () => {
+    it('Valida o título e subtítulo da aplicação', {tags: 'smoke'}, () => {
         cy.get('[data-test=landing-title]')
             .should('exist')
             .and('not.have.class','x-large2')
